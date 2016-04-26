@@ -1,0 +1,13 @@
+{
+   "name" : "Log-Any-Adapter-Journal",
+   "resources" : {
+      "repository" : {
+         "web" : "http://github.com/mvgrimes/Log-Any-Adapter-Journal",
+         "url" : "http://github.com/mvgrimes/Log-Any-Adapter-Journal.git",
+         "type" : "git"
+      },
+      "bugtracker" : {
+         "web" : "http://github.com/mvgrimes/Log-Any-Adapter-Journal/issues"
+      }
+   },
+   "x_contributors" : [ ] }
