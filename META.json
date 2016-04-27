@@ -36,7 +36,7 @@
    "provides" : {
       "Log::Any::Adapter::Journal" : {
          "file" : "lib/Log/Any/Adapter/Journal.pm",
-         "version" : "0.10"
+         "version" : "0.11"
       }
    },
    "release_status" : "stable",
@@ -50,7 +50,7 @@
          "web" : "http://github.com/mvgrimes/Log-Any-Adapter-Journal"
       }
    },
-   "version" : "0.10",
+   "version" : "0.11",
    "x_contributors" : [],
    "x_serialization_backend" : "JSON::PP version 2.27300"
 }

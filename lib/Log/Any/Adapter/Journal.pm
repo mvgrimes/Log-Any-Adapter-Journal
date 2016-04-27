@@ -10,7 +10,7 @@ use Log::Any::Adapter::Util qw(logging_methods numeric_level);
 use parent 'Log::Any::Adapter::Screen';
 use Class::Method::Modifiers;
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 # sub init {
 #     my ($self) = @_;
@@ -53,7 +53,7 @@ Log::Any::Adapter::Journal - Adapter for Log::Any that outputs with a priority p
 
 =head1 VERSION
 
-version 0.10
+version 0.11
 
 =head1 STATUS
 
@@ -65,7 +65,7 @@ version 0.10
     use Log::Any::Adapter;
     Log::Any::Adapter->set( 'Journal', 
         # min_level => 'debug', # default is 'warning'
-        # colors    => { trace => 'bold yellow on_gray', ... }, # customize colors
+        # colors    => { }, # customize colors
         # use_color => 1, # force color even when not interactive
         # stderr    => 0, # print to STDOUT instead of the default STDERR
         # formatter => sub { "LOG: $_[1]" }, # default none
@@ -73,11 +73,25 @@ version 0.10
 
 =head1 DESCRIPTION
 
-Desciption to come...
+When sending log messages to systemd's journal, the priority can be set by
+prefixing the message with the priority (as a number) in angled brackets.
+This adapter for will format L<Log::Any> messages to accomodate the systemd's
+log parser.
+
+By default, systemd will parse the output from commands run as systemd
+services/units for the priority prefix (both STDOUT and STDERR). Users can
+also pipe output through the C<systemd-cat> command to enable parsing of
+priority for scripts.
+
+This adapter is based on the L<Log::Any::Adapter::Screen>, and accepts the same
+optional settings. We assume you want color output when running interactively
+and the priority prefix otherwise.  More precisely, the priority prefix will be
+added when C<! -t STDIN> or C<!!use_color>.  See L<Log::Any::Adapter::Screen>
+for more information on the various options.
 
 =head1 SEE ALSO
 
-L<Log::Any>, L<Log::Any::Adapter::Journal>
+L<Log::Any>, L<Log::Any::Adapter::Screen>, C<systemd-cat>
 
 =head1 BUGS
 
