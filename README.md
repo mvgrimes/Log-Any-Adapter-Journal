@@ -4,7 +4,7 @@ Log::Any::Adapter::Journal - Adapter for Log::Any that outputs with a priority p
 
 # VERSION
 
-version 0.11
+version 0.12
 
 # STATUS
 

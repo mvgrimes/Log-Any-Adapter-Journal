@@ -10,7 +10,7 @@ use Log::Any::Adapter::Util qw(logging_methods numeric_level);
 use parent 'Log::Any::Adapter::Screen';
 use Class::Method::Modifiers;
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 # sub init {
 #     my ($self) = @_;
@@ -53,7 +53,7 @@ Log::Any::Adapter::Journal - Adapter for Log::Any that outputs with a priority p
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 STATUS
 
