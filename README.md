@@ -4,7 +4,7 @@ Log::Any::Adapter::Journal - Adapter for Log::Any that outputs with a priority p
 
 # VERSION
 
-version 0.12
+version 0.13
 
 # STATUS
 
@@ -28,8 +28,8 @@ version 0.12
 
 When sending log messages to systemd's journal, the priority can be set by
 prefixing the message with the priority (as a number) in angled brackets.
-This adapter for will format [Log::Any](https://metacpan.org/pod/Log::Any) messages to accomodate the systemd's
-log parser.
+This adapter will format [Log::Any](https://metacpan.org/pod/Log::Any) messages to accomodate the systemd's log
+parser.
 
 By default, systemd will parse the output from commands run as systemd
 services/units for the priority prefix (both STDOUT and STDERR). Users can

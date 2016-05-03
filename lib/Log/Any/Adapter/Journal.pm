@@ -10,7 +10,7 @@ use Log::Any::Adapter::Util qw(logging_methods numeric_level);
 use parent 'Log::Any::Adapter::Screen';
 use Class::Method::Modifiers;
 
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 
 # sub init {
 #     my ($self) = @_;
@@ -53,7 +53,7 @@ Log::Any::Adapter::Journal - Adapter for Log::Any that outputs with a priority p
 
 =head1 VERSION
 
-version 0.12
+version 0.13
 
 =head1 STATUS
 
@@ -75,8 +75,8 @@ version 0.12
 
 When sending log messages to systemd's journal, the priority can be set by
 prefixing the message with the priority (as a number) in angled brackets.
-This adapter for will format L<Log::Any> messages to accomodate the systemd's
-log parser.
+This adapter will format L<Log::Any> messages to accomodate the systemd's log
+parser.
 
 By default, systemd will parse the output from commands run as systemd
 services/units for the priority prefix (both STDOUT and STDERR). Users can
