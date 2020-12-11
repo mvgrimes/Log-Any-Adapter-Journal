@@ -4,7 +4,7 @@ Log::Any::Adapter::Journal - Adapter for Log::Any that outputs with a priority p
 
 # VERSION
 
-version 0.13
+version 1.0
 
 # STATUS
 
@@ -28,7 +28,7 @@ version 0.13
 
 When sending log messages to systemd's journal, the priority can be set by
 prefixing the message with the priority (as a number) in angled brackets.
-This adapter will format [Log::Any](https://metacpan.org/pod/Log::Any) messages to accomodate the systemd's log
+This adapter will format [Log::Any](https://metacpan.org/pod/Log%3A%3AAny) messages to accomodate the systemd's log
 parser.
 
 By default, systemd will parse the output from commands run as systemd
@@ -36,15 +36,21 @@ services/units for the priority prefix (both STDOUT and STDERR). Users can
 also pipe output through the `systemd-cat` command to enable parsing of
 priority for scripts.
 
-This adapter is based on the [Log::Any::Adapter::Screen](https://metacpan.org/pod/Log::Any::Adapter::Screen), and accepts the same
+Journald doesn't support the trace (8) log level. If the min\_level is set to
+'trace', then logs will be sent to journald with the debug (7) log level.
+This behavior changed in version 1.0 of [Log::Any::Adapter::Journal](https://metacpan.org/pod/Log%3A%3AAny%3A%3AAdapter%3A%3AJournal).
+Prior to version 1.0, trace logs were treated as if they were debug logs,
+so they were sent to with debug (7) log level even if min\_level was 'debug'.
+
+This adapter is based on the [Log::Any::Adapter::Screen](https://metacpan.org/pod/Log%3A%3AAny%3A%3AAdapter%3A%3AScreen), and accepts the same
 optional settings. We assume you want color output when running interactively
 and the priority prefix otherwise.  More precisely, the priority prefix will be
-added when `! -t STDIN` or `!!use_color`.  See [Log::Any::Adapter::Screen](https://metacpan.org/pod/Log::Any::Adapter::Screen)
+added when `! -t STDIN` or `!!use_color`.  See [Log::Any::Adapter::Screen](https://metacpan.org/pod/Log%3A%3AAny%3A%3AAdapter%3A%3AScreen)
 for more information on the various options.
 
 # SEE ALSO
 
-[Log::Any](https://metacpan.org/pod/Log::Any), [Log::Any::Adapter::Screen](https://metacpan.org/pod/Log::Any::Adapter::Screen), `systemd-cat`
+[Log::Any](https://metacpan.org/pod/Log%3A%3AAny), [Log::Any::Adapter::Screen](https://metacpan.org/pod/Log%3A%3AAny%3A%3AAdapter%3A%3AScreen), `systemd-cat`
 
 # BUGS
 
